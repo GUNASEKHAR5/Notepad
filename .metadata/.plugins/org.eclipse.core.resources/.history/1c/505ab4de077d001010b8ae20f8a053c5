@@ -1,0 +1,33 @@
+package notepad;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Notepad extends JFrame{
+	private static final long serialVersionUID = 1L;
+	
+	Notepad(){
+		setTitle("Notepad");
+		ImageIcon image = new ImageIcon(getClass().getResource("/notepad/icons/notepad.png"));
+		setIconImage(image.getImage());
+		
+		JMenuBar menubar=new JMenuBar();
+		menubar.setBackground(Color.GREEN);
+		JMenu file=new JMenu("File");
+		JMenu edit=new JMenu("Edit");
+		JMenu view=new JMenu("View");
+		
+		menubar.add(file);
+		menubar.add(edit);
+		menubar.add(view);
+		
+		
+		setJMenuBar(menubar);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);	
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new Notepad();
+	}
+}
