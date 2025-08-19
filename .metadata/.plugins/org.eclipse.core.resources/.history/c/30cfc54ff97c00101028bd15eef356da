@@ -1,0 +1,19 @@
+package notepad;
+
+import javax.swing.*;
+
+public class Notepad extends JFrame{
+	private static final long serialVersionUID = 1L;
+	
+	Notepad(){
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
+		
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new Notepad();
+	}
+
+}
