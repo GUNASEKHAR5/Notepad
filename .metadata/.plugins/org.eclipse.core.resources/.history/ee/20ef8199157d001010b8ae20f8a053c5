@@ -1,0 +1,74 @@
+package notepad;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Notepad extends JFrame{
+	private static final long serialVersionUID = 1L;
+	
+	Notepad(){
+		setTitle("Notepad");
+		ImageIcon image = new ImageIcon(getClass().getResource("/notepad/icons/notepad.png"));
+		setIconImage(image.getImage());
+		
+		JMenuBar menubar=new JMenuBar();
+		menubar.setBackground(new Color(245,250,249));
+		
+		JMenu file=new JMenu("File");
+		file.setFont(new Font("AERIAL",Font.PLAIN,14));
+		JMenuItem newdoc=new JMenuItem("New");
+		newdoc.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
+		JMenuItem open=new JMenuItem("Open");
+		open.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,ActionEvent.CTRL_MASK));
+		JMenuItem save=new JMenuItem("Save");
+		save.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
+		JMenuItem print=new JMenuItem("Print");
+		print.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,ActionEvent.CTRL_MASK));
+		JMenuItem exit=new JMenuItem("Exit");
+		exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,ActionEvent.CTRL_MASK));
+		file.add(newdoc);
+		file.add(open);
+		file.add(save);
+		file.add(print);
+		file.add(exit);
+		
+		
+		JMenu edit=new JMenu("Edit");
+		edit.setFont(new Font("AERIAL",Font.PLAIN,14));
+		JMenuItem copy=new JMenuItem("Copy");
+		copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,ActionEvent.CTRL_MASK));
+		JMenuItem paste=new JMenuItem("Paste");
+		paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,ActionEvent.CTRL_MASK));
+		JMenuItem cut=new JMenuItem("Cut");
+		cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));
+		JMenuItem selectAll=new JMenuItem("Select All");
+		selectAll.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
+		edit.add(copy);
+		edit.add(paste);
+		edit.add(cut);
+		edit.add(selectAll);
+		
+		
+		JMenu helpMenu=new JMenu("Help");
+		helpMenu.setFont(new Font("AERIAL",Font.PLAIN,14));
+		JMenuItem help=new JMenuItem("Help");
+		help.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,ActionEvent.CTRL_MASK));
+		helpMenu.add(help);
+		
+		menubar.add(file);
+		menubar.add(edit);
+		menubar.add(helpMenu);
+		
+		setJMenuBar(menubar);
+		
+		JTextArea area=new JTextArea();
+		add(area);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);	
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new Notepad();
+	}
+}
