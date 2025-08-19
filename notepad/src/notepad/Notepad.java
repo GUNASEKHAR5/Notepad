@@ -10,6 +10,7 @@ public class Notepad extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	
 	JTextArea area;
+	String text;
 	
 	Notepad(){
 		setTitle("Notepad");
@@ -46,12 +47,16 @@ public class Notepad extends JFrame implements ActionListener{
 		JMenu edit=new JMenu("Edit");
 		edit.setFont(new Font("AERIAL",Font.PLAIN,14));
 		JMenuItem copy=new JMenuItem("Copy");
+		copy.addActionListener(this);
 		copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,ActionEvent.CTRL_MASK));
 		JMenuItem paste=new JMenuItem("Paste");
+		paste.addActionListener(this);
 		paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,ActionEvent.CTRL_MASK));
 		JMenuItem cut=new JMenuItem("Cut");
+		cut.addActionListener(this);
 		cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));
 		JMenuItem selectAll=new JMenuItem("Select All");
+		selectAll.addActionListener(this);
 		selectAll.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
 		edit.add(copy);
 		edit.add(paste);
@@ -59,15 +64,17 @@ public class Notepad extends JFrame implements ActionListener{
 		edit.add(selectAll);
 		
 		
-		JMenu helpMenu=new JMenu("Help");
-		helpMenu.setFont(new Font("AERIAL",Font.PLAIN,14));
-		JMenuItem help=new JMenuItem("Help");
-		help.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,ActionEvent.CTRL_MASK));
-		helpMenu.add(help);
+		JMenu aboutMenu=new JMenu("About");
+		aboutMenu.addActionListener(this);
+		aboutMenu.setFont(new Font("AERIAL",Font.PLAIN,14));
+		JMenuItem about=new JMenuItem("About");
+		about.addActionListener(this);
+		about.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,ActionEvent.CTRL_MASK));
+		aboutMenu.add(about);
 		
 		menubar.add(file);
 		menubar.add(edit);
-		menubar.add(helpMenu);
+		menubar.add(aboutMenu);
 		
 		setJMenuBar(menubar);
 		
@@ -112,6 +119,49 @@ public class Notepad extends JFrame implements ActionListener{
 			catch(Exception ae) {
 				ae.printStackTrace();
 			}	
+		}
+		else if(e.getActionCommand().equals("Save")) {
+			JFileChooser saveas=new JFileChooser();
+			saveas.setApproveButtonText("Save");
+			int action=saveas.showSaveDialog(this);
+			if(action!=JFileChooser.APPROVE_OPTION) {
+				return;
+			}
+			File filename = new File(saveas.getSelectedFile().getAbsolutePath().concat(".txt"));
+			BufferedWriter outFile=null;
+			try {
+				outFile=new BufferedWriter(new FileWriter(filename));
+				area.write(outFile);
+			}
+			catch(Exception ae){
+				ae.printStackTrace();
+			}
+		}
+		else if(e.getActionCommand().equals("Print")) {
+			try {
+				area.print();
+			}
+			catch(Exception ae) {
+				ae.printStackTrace();
+			}
+		}
+		else if(e.getActionCommand().equals("Exit")) {
+			System.exit(0);
+		}
+		else if(e.getActionCommand().equals("Copy")) {
+			text=area.getSelectedText();
+		}
+		else if(e.getActionCommand().equals("Paste")) {
+			area.insert(text, area.getCaretPosition());
+		}
+		else if(e.getActionCommand().equals("Cut")) {
+			area.replaceRange("", area.getSelectionStart(), area.getSelectionEnd());
+		}
+		else if(e.getActionCommand().equals("Select All")) {
+			area.selectAll();
+		}
+		else if(e.getActionCommand().equals("About")) {
+			new About().setVisible(true);
 		}
 		
 	}
