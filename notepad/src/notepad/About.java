@@ -15,14 +15,14 @@ public class About extends JFrame{
 		ImageIcon i=new ImageIcon(img);
 		JLabel icon=new JLabel(i);
 		
-		JLabel text=new JLabel("<html>The Simple Notepad Clone.<br>Buid Using Java Swing.<br><br> developed by Guna</html>");
-		text.setBounds(150, 150, 500, 300);
+		JLabel text=new JLabel("<html>The Codepad Is basically like Notepad.<br>But it has Extra Features Like Run<br><br> developed by Guna</html>");
+		text.setBounds(110, 150, 500, 330);
 		text.setFont(new Font("MONTSERRAT",Font.PLAIN,17));
 		
 		add(icon);
 		add(text);
 		
-		icon.setBounds(120, 40, 200, 200);
+		icon.setBounds(120, 20, 200, 200);
 		setBounds(400,100,450,400);
 		setVisible(true);
 	}
