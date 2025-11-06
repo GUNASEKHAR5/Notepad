@@ -9,13 +9,20 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Notepad extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	
-	JTextArea area;
-	String text;
-	
+	private JTabbedPane tabbedPane;
+	private JFileChooser chooser;
+	private JMenuItem runMenuItem;
+	private final String[] SUPPORTED_EXTENSIONS= {"txt","c","cpp","java","py"};
+
 	Notepad(){
-		setTitle("Notepad");
+		setTitle("Codepad");
 		ImageIcon image = new ImageIcon(getClass().getResource("/notepad/icons/notepad.png"));
 		setIconImage(image.getImage());
+		
+		chooser=new JFileChooser();
+		chooser.setAcceptAllFileFilterUsed(false);
+		FileNameExtensionFilter multiFilter=new FileNameExtensionFilter("Text & Code Files(*.txt,*.c,*.cpp,*.java,*.py)",SUPPORTED_EXTENSIONS);
+		chooser.addChoosableFileFilter(multiFilter);
 		
 		JMenuBar menubar=new JMenuBar();
 		menubar.setBackground(new Color(245,250,249));
@@ -34,6 +41,9 @@ public class Notepad extends JFrame implements ActionListener{
 		JMenuItem print=new JMenuItem("Print");
 		print.addActionListener(this);
 		print.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,ActionEvent.CTRL_MASK));
+		JMenuItem closeTab=new JMenuItem("CloseTab");
+		closeTab.addActionListener(this);
+		closeTab.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,ActionEvent.CTRL_MASK));
 		JMenuItem exit=new JMenuItem("Exit");
 		exit.addActionListener(this);
 		exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,ActionEvent.CTRL_MASK));
@@ -41,6 +51,7 @@ public class Notepad extends JFrame implements ActionListener{
 		file.add(open);
 		file.add(save);
 		file.add(print);
+		file.add(closeTab);
 		file.add(exit);
 		
 		
@@ -63,6 +74,12 @@ public class Notepad extends JFrame implements ActionListener{
 		edit.add(cut);
 		edit.add(selectAll);
 		
+		JMenu runMenu=new JMenu("Run");
+		runMenu.setFont(new Font("Arial",Font.PLAIN,14));
+		runMenuItem=new JMenuItem("Run");
+		runMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.ALT_MASK)); // Alt + X
+        runMenuItem.addActionListener(e -> runCurrentFile());
+        runMenu.add(runMenuItem);
 		
 		JMenu aboutMenu=new JMenu("About");
 		aboutMenu.addActionListener(this);
@@ -74,72 +91,119 @@ public class Notepad extends JFrame implements ActionListener{
 		
 		menubar.add(file);
 		menubar.add(edit);
-		menubar.add(aboutMenu);
-		
+		menubar.add(runMenu);
+		menubar.add(aboutMenu);	
 		setJMenuBar(menubar);
 		
-		area=new JTextArea();
-		area.setFont(new Font("MONTSERRAT",Font.PLAIN,17));
-		area.setLineWrap(true);
-		area.setWrapStyleWord(true);
-		add(area);
-		
-		JScrollPane pane=new JScrollPane(area);
-		pane.setBorder(BorderFactory.createEmptyBorder());
-		add(pane);
-		
-		setExtendedState(JFrame.MAXIMIZED_BOTH);	
+		tabbedPane=new JTabbedPane();
+		tabbedPane.setFont(new Font("Arial",Font.PLAIN,14));
+		add(tabbedPane,BorderLayout.CENTER);
+		createNewTab(null);
+				
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setVisible(true);
 	}
-
-	public static void main(String[] args) {
-		new Notepad();
+	
+	private static class TabData{
+		JTextArea textArea;
+		File file;
+	}
+	
+	private void createNewTab(File file) {
+		TabData data=new TabData();
+		data.textArea=new JTextArea();
+		data.textArea.setFont(new Font("MoNTSERRAT",Font.PLAIN,17));
+		data.textArea.setLineWrap(true);
+		data.textArea.setWrapStyleWord(true);
+		data.file=file;
+		
+		JScrollPane scroll=new JScrollPane(data.textArea);
+		scroll.setBorder(BorderFactory.createEmptyBorder());
+		
+		String title=(file==null)?"Untitled" : file.getName();
+		tabbedPane.addTab(title, scroll);
+		tabbedPane.setSelectedComponent(scroll);
+		scroll.putClientProperty("tabData",data);
+	}
+	
+	private TabData getCurrentTab() {
+		JScrollPane scroll=(JScrollPane)tabbedPane.getSelectedComponent();
+		return (TabData)scroll.getClientProperty("tabData");
+	}
+	
+	private JTextArea getCurrentArea() {
+		return getCurrentTab().textArea;
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("New")) {
-			area.setText("");
+			createNewTab(null);
 		}
 		else if(e.getActionCommand().equals("Open")) {
-			JFileChooser chooser=new JFileChooser();
-			chooser.setAcceptAllFileFilterUsed(false);
-			FileNameExtensionFilter restrict=new FileNameExtensionFilter("Only .txt files","txt");
-			chooser.addChoosableFileFilter(restrict);
-			
-//			chooser.showOpenDialog(this);
 			int action=chooser.showOpenDialog(this);
-			if(action!=JFileChooser.APPROVE_OPTION) {
+			if(action!=JFileChooser.APPROVE_OPTION)return;
+			File file=chooser.getSelectedFile();
+			String ext=getFileExtension(file);
+			if(!isSupportedExtension(ext)) {
+				JOptionPane.showMessageDialog(this,"Unsupported File Type: "+ext," Error",JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			File file=chooser.getSelectedFile();
-			try {
-				BufferedReader reader=new BufferedReader(new FileReader(file));
-				area.read(reader, null);
+			try(BufferedReader reader=new BufferedReader(new FileReader(file))){
+				TabData data=new TabData();
+				data.textArea=new JTextArea();
+				data.textArea.read(reader, null);
+				data.textArea.setFont(new Font("MONTSERRAT",Font.PLAIN,17));
+				data.textArea.setLineWrap(true);
+				data.textArea.setWrapStyleWord(true);
+				data.file=file;
+				
+				JScrollPane scroll=new JScrollPane(data.textArea);
+				scroll.setBorder(BorderFactory.createEmptyBorder());
+				scroll.putClientProperty("tabData",data);
+				tabbedPane.addTab(file.getName(), scroll);
+				tabbedPane.setSelectedComponent(scroll);
 			}
 			catch(Exception ae) {
 				ae.printStackTrace();
-			}	
+			}
 		}
 		else if(e.getActionCommand().equals("Save")) {
-			JFileChooser saveas=new JFileChooser();
-			saveas.setApproveButtonText("Save");
-			int action=saveas.showSaveDialog(this);
-			if(action!=JFileChooser.APPROVE_OPTION) {
-				return;
+			TabData data=getCurrentTab();
+			JTextArea area=data.textArea;
+			
+			if(data.file!=null) {
+				try(BufferedWriter out=new BufferedWriter(new FileWriter(data.file))) {
+					area.write(out);
+				}
+				catch(Exception ae) {
+					ae.printStackTrace();
+				}
 			}
-			File filename = new File(saveas.getSelectedFile().getAbsolutePath().concat(".txt"));
-			BufferedWriter outFile=null;
-			try {
-				outFile=new BufferedWriter(new FileWriter(filename));
-				area.write(outFile);
+			else {
+				int action=chooser.showSaveDialog(this);
+				if(action!=JFileChooser.APPROVE_OPTION)return;
+				File chosen=chooser.getSelectedFile();
+				String path=chosen.getAbsolutePath();
+				if(!hasSupportedExtension(path)) {
+					path+=".txt";
+				}
+				data.file=new File(path);
+				try(BufferedWriter out=new BufferedWriter(new FileWriter(data.file))){
+					area.write(out);
+					int index=tabbedPane.getSelectedIndex();
+					tabbedPane.setTitleAt(index, data.file.getName());
+				}
+				catch(Exception ae) {
+					ae.printStackTrace();
+				}
 			}
-			catch(Exception ae){
-				ae.printStackTrace();
-			}
+		}
+		else if(e.getActionCommand().equals("CloseTab")) {
+			closeCurrentTab();
 		}
 		else if(e.getActionCommand().equals("Print")) {
 			try {
-				area.print();
+				getCurrentArea().print();
 			}
 			catch(Exception ae) {
 				ae.printStackTrace();
@@ -149,20 +213,123 @@ public class Notepad extends JFrame implements ActionListener{
 			System.exit(0);
 		}
 		else if(e.getActionCommand().equals("Copy")) {
-			text=area.getSelectedText();
+			getCurrentArea().copy();
 		}
 		else if(e.getActionCommand().equals("Paste")) {
-			area.insert(text, area.getCaretPosition());
+			getCurrentArea().paste();
 		}
 		else if(e.getActionCommand().equals("Cut")) {
-			area.replaceRange("", area.getSelectionStart(), area.getSelectionEnd());
+			getCurrentArea().cut();
 		}
 		else if(e.getActionCommand().equals("Select All")) {
-			area.selectAll();
+			getCurrentArea().selectAll();
 		}
 		else if(e.getActionCommand().equals("About")) {
 			new About().setVisible(true);
 		}
 		
+	}
+	
+	private void closeCurrentTab() {
+		int index=tabbedPane.getSelectedIndex();
+		if(index!=-1) {
+			tabbedPane.removeTabAt(index);
+			if(tabbedPane.getTabCount()==0) {
+				createNewTab(null);
+			}
+		}
+	}
+	
+	private void runCurrentFile() {
+	    TabData data = getCurrentTab();
+	    if (data == null || data.file == null) {
+	        JOptionPane.showMessageDialog(this,
+	                "Please save the file before running.",
+	                "Error", JOptionPane.WARNING_MESSAGE);
+	        return;
+	    }
+
+	    // Save current buffer before running
+	    try (BufferedWriter out = new BufferedWriter(new FileWriter(data.file))) {
+	        data.textArea.write(out);
+	    } catch (IOException e) {
+	        JOptionPane.showMessageDialog(this,
+	                "Could not save file before running:\n" + e.getMessage(),
+	                "Save Error", JOptionPane.ERROR_MESSAGE);
+	        return;
+	    }
+
+	    String filePath = data.file.getAbsolutePath();
+	    String dirPath = data.file.getParent();
+	    String ext = getFileExtension(data.file);
+	    String innerCmd = null;
+
+	    switch (ext) {
+	        case "c": {
+	            String outExe = "run.exe";
+	            innerCmd = String.format("cd /d \"%s\" && gcc \"%s\" -o \"%s\" && \"%s\"",
+	                    dirPath, filePath, outExe, outExe);
+	            break;
+	        }
+	        case "cpp": {
+	            String outExe = "run.exe";
+	            innerCmd = String.format("cd /d \"%s\" && g++ \"%s\" -o \"%s\" && \"%s\"",
+	                    dirPath, filePath, outExe, outExe);
+	            break;
+	        }
+	        case "java": {
+	            String className = data.file.getName().replaceAll("\\.java$", "");
+	            innerCmd = String.format("cd /d \"%s\" && javac \"%s\" && java %s",
+	                    dirPath, data.file.getName(), className);
+	            break;
+	        }
+	        case "py": {
+	            innerCmd = String.format("cd /d \"%s\" && python \"%s\"",
+	                    dirPath, filePath);
+	            break;
+	        }
+	        default:
+	            JOptionPane.showMessageDialog(this,
+	                    "Unsupported file type for running.",
+	                    "Error", JOptionPane.ERROR_MESSAGE);
+	            return;
+	    }
+	    String[] command = new String[] {
+	            "cmd.exe", "/c", "start", "cmd.exe", "/k", innerCmd
+	    };
+
+	    try {
+	        new ProcessBuilder(command).start();
+	    } catch (IOException ex) {
+	        ex.printStackTrace();
+	        JOptionPane.showMessageDialog(this,
+	                "Error launching Command Prompt:\n" + ex.getMessage(),
+	                "Run Error", JOptionPane.ERROR_MESSAGE);
+	    }
+	}
+	
+	private String getFileExtension(File file) {
+		String name=file.getName();
+		int lastDot=name.lastIndexOf('.');
+		if(lastDot==-1)return "";
+		return name.substring(lastDot+1).toLowerCase();
+	}
+	
+	private boolean isSupportedExtension(String ext) {
+		for(String s:SUPPORTED_EXTENSIONS) {
+			if(s.equals(ext))return true;
+		}
+		return false;
+	}
+	
+	private boolean hasSupportedExtension(String path) {
+		for(String s:SUPPORTED_EXTENSIONS) {
+			if(path.toLowerCase().endsWith("."+s))return true;
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		new Notepad();
 	}
 }
