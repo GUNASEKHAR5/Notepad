@@ -1,0 +1,33 @@
+package notepad;
+
+import java.awt.Font;
+import java.awt.Image;
+
+import javax.swing.*;
+
+public class About extends JFrame{
+	private static final long serialVersionUID = 1L;
+
+	About(){
+		setLayout(null);
+		ImageIcon image = new ImageIcon(getClass().getResource("/notepad/icons/notepad.png"));
+		Image img=image.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+		ImageIcon i=new ImageIcon(img);
+		JLabel icon=new JLabel(i);
+		
+		JLabel text=new JLabel("<html>The Codepad Is basically like Notepad.<br>But it has Extra Features Like Run<br><br> developed by Guna</html>");
+		text.setBounds(110, 150, 500, 330);
+		text.setFont(new Font("MONTSERRAT",Font.PLAIN,17));
+		
+		add(icon);
+		add(text);
+		
+		icon.setBounds(120, 20, 200, 200);
+		setBounds(400,100,450,400);
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		new About();
+	}
+}

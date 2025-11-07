@@ -1,0 +1,27 @@
+package notepad;
+
+import java.awt.*;
+import java.awt.print.*;
+
+class A implements Printable {
+    public int print(Graphics g, PageFormat pf, int pageIndex) throws PrinterException {
+        if (pageIndex > 0) return NO_SUCH_PAGE;
+        g.drawString("Hello, this is Class A printing!", 100, 100);
+        return PAGE_EXISTS;
+    }
+}
+
+public class B {
+    public static void main(String[] args) {
+        PrinterJob job = PrinterJob.getPrinterJob();
+        job.setPrintable(new A());
+        boolean doPrint = job.printDialog();
+        if (doPrint) {
+            try {
+                job.print();
+            } catch (PrinterException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}

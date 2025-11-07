@@ -1,0 +1,77 @@
+package notepad;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class About extends JFrame {
+    private static final long serialVersionUID = 1L;
+
+    public About() {
+        // --- Window Setup ---
+        setTitle("About CodePad");
+        setLayout(null);
+        setBounds(400, 150, 620, 560);
+        getContentPane().setBackground(new Color(245, 250, 249));
+
+        // --- Set Window Icon ---
+        ImageIcon icon = new ImageIcon(getClass().getResource("/notepad/icons/notepad.png"));
+        setIconImage(icon.getImage());
+
+        // --- Title ---
+        JLabel title = new JLabel("CodePad", SwingConstants.CENTER);
+        title.setFont(new Font("MONTSERRAT", Font.BOLD, 30));
+        title.setForeground(new Color(25, 25, 112));
+        title.setBounds(0, 40, 620, 50);
+        add(title);
+
+        // --- Description (with better spacing & breaks) ---
+        JLabel description = new JLabel(
+            "<html><div style='text-align:center; line-height: 1.6;'>"
+            + "<b>CodePad</b> is a lightweight, multi-language text and code editor<br>"
+            + "built completely using <b>Java Swing</b>."
+            + "<br><br>"
+            + "It supports multiple file types including "
+            + "<b>.txt, .c, .cpp, .h, .java, and .py</b>.<br>"
+            + "You can open, edit, save, and even <b>compile & run</b> your code<br>"
+            + "directly through the integrated menu system."
+            + "<br><br>"
+            + "<b>Key Features:</b><br>"
+            + "• Multi-tab editor for handling multiple files<br>"
+            + "• Auto-save and quick-run options<br>"
+            + "• Integrated Command Prompt execution<br>"
+            + "• Supports C, C++, Java, and Python execution<br>"
+            + "• Simple and clean UI with keyboard shortcuts"
+            + "</div></html>"
+        );
+        description.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        description.setForeground(Color.DARK_GRAY);
+        description.setBounds(60, 110, 500, 320);
+        add(description);
+
+        // --- Developer Credit ---
+        JLabel dev = new JLabel(
+            "<html><center><i>Developed using Java by <b>KUDIMI GUNASEKHAR</b></i></center></html>"
+        );
+        dev.setFont(new Font("Segoe UI", Font.ITALIC, 13));
+        dev.setForeground(new Color(90, 90, 90));
+        dev.setBounds(100, 440, 420, 30);
+        add(dev);
+
+        // --- Close Button ---
+        JButton close = new JButton("Close");
+        close.setFont(new Font("Arial", Font.BOLD, 14));
+        close.setBackground(new Color(25, 25, 112));
+        close.setForeground(Color.WHITE);
+        close.setFocusPainted(false);
+        close.setBounds(250, 480, 120, 35);
+        close.addActionListener(e -> dispose());
+        add(close);
+
+        setResizable(false);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new About();
+    }
+}
