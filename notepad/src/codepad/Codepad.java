@@ -1,4 +1,4 @@
-package notepad;
+package codepad;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,22 +6,22 @@ import java.awt.event.*;
 import java.io.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class Notepad extends JFrame implements ActionListener{
+public class Codepad extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	
 	private JTabbedPane tabbedPane;
 	private JFileChooser chooser;
 	private JMenuItem runMenuItem;
-	private final String[] SUPPORTED_EXTENSIONS= {"txt","c","cpp","java","py"};
+	private final String[] SUPPORTED_EXTENSIONS= {"txt","h","c","cpp","java","py"};
 
-	Notepad(){
+	Codepad(){
 		setTitle("Codepad");
-		ImageIcon image = new ImageIcon(getClass().getResource("/notepad/icons/notepad.png"));
+		ImageIcon image = new ImageIcon(getClass().getResource("/codepad/icons/codepad.png"));
 		setIconImage(image.getImage());
 		
 		chooser=new JFileChooser();
 		chooser.setAcceptAllFileFilterUsed(false);
-		FileNameExtensionFilter multiFilter=new FileNameExtensionFilter("Text & Code Files(*.txt,*.c,*.cpp,*.java,*.py)",SUPPORTED_EXTENSIONS);
+		FileNameExtensionFilter multiFilter=new FileNameExtensionFilter("Text & Code Files(*.txt,*.h,*.c,*.cpp,*.java,*.py)",SUPPORTED_EXTENSIONS);
 		chooser.addChoosableFileFilter(multiFilter);
 		
 		JMenuBar menubar=new JMenuBar();
@@ -263,6 +263,14 @@ public class Notepad extends JFrame implements ActionListener{
 	    String dirPath = data.file.getParent();
 	    String ext = getFileExtension(data.file);
 	    String innerCmd = null;
+	    
+	    if (ext.equals("h")) {
+	        JOptionPane.showMessageDialog(this,
+	                "Header files (.h) cannot be directly run.\n"
+	              + "Open the main .c or .cpp file that includes this header to run.",
+	                "Info", JOptionPane.INFORMATION_MESSAGE);
+	        return;
+	    }
 
 	    switch (ext) {
 	        case "c": {
@@ -278,9 +286,8 @@ public class Notepad extends JFrame implements ActionListener{
 	            break;
 	        }
 	        case "java": {
-	            String className = data.file.getName().replaceAll("\\.java$", "");
-	            innerCmd = String.format("cd /d \"%s\" && javac \"%s\" && java %s",
-	                    dirPath, data.file.getName(), className);
+	        	String mainFile=data.file.getName().replaceAll("\\.java$","");
+	        	innerCmd=String.format("cd /d \"%s\" && javac *.java && java %s",dirPath,mainFile);
 	            break;
 	        }
 	        case "py": {
@@ -330,6 +337,6 @@ public class Notepad extends JFrame implements ActionListener{
 	}
 	
 	public static void main(String[] args) {
-		new Notepad();
+		new Codepad();
 	}
 }
