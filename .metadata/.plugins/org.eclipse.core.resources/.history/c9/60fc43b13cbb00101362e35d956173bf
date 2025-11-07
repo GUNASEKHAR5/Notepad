@@ -1,0 +1,230 @@
+package notepad;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+public class Notepad extends JFrame implements ActionListener{
+	private static final long serialVersionUID = 1L;
+	
+	private JTabbedPane tabbedPane;
+	private JFileChooser chooser;
+
+	Notepad(){
+		setTitle("Notepad");
+		ImageIcon image = new ImageIcon(getClass().getResource("/notepad/icons/notepad.png"));
+		setIconImage(image.getImage());
+		
+		chooser=new JFileChooser();
+		chooser.setAcceptAllFileFilterUsed(false);
+		chooser.addChoosableFileFilter(new FileNameExtensionFilter("Text Document (*.txt)","txt"));
+		
+		JMenuBar menubar=new JMenuBar();
+		menubar.setBackground(new Color(245,250,249));
+		
+		JMenu file=new JMenu("File");
+		file.setFont(new Font("AERIAL",Font.PLAIN,14));
+		JMenuItem newdoc=new JMenuItem("New");
+		newdoc.addActionListener(this);
+		newdoc.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
+		JMenuItem open=new JMenuItem("Open");
+		open.addActionListener(this);
+		open.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,ActionEvent.CTRL_MASK));
+		JMenuItem save=new JMenuItem("Save");
+		save.addActionListener(this);
+		save.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
+		JMenuItem print=new JMenuItem("Print");
+		print.addActionListener(this);
+		print.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,ActionEvent.CTRL_MASK));
+		JMenuItem closeTab=new JMenuItem("Close tab");
+		closeTab.addActionListener(this);
+		closeTab.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,ActionEvent.CTRL_MASK));
+		JMenuItem exit=new JMenuItem("Exit");
+		exit.addActionListener(this);
+		exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,ActionEvent.CTRL_MASK));
+		file.add(newdoc);
+		file.add(open);
+		file.add(save);
+		file.add(print);
+		file.add(closeTab);
+		file.add(exit);
+		
+		
+		JMenu edit=new JMenu("Edit");
+		edit.setFont(new Font("AERIAL",Font.PLAIN,14));
+		JMenuItem copy=new JMenuItem("Copy");
+		copy.addActionListener(this);
+		copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,ActionEvent.CTRL_MASK));
+		JMenuItem paste=new JMenuItem("Paste");
+		paste.addActionListener(this);
+		paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,ActionEvent.CTRL_MASK));
+		JMenuItem cut=new JMenuItem("Cut");
+		cut.addActionListener(this);
+		cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));
+		JMenuItem selectAll=new JMenuItem("Select All");
+		selectAll.addActionListener(this);
+		selectAll.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
+		edit.add(copy);
+		edit.add(paste);
+		edit.add(cut);
+		edit.add(selectAll);
+		
+		
+		JMenu aboutMenu=new JMenu("About");
+		aboutMenu.addActionListener(this);
+		aboutMenu.setFont(new Font("AERIAL",Font.PLAIN,14));
+		JMenuItem about=new JMenuItem("About");
+		about.addActionListener(this);
+		about.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,ActionEvent.CTRL_MASK));
+		aboutMenu.add(about);
+		
+		menubar.add(file);
+		menubar.add(edit);
+		menubar.add(aboutMenu);
+		
+		setJMenuBar(menubar);
+		
+		tabbedPane=new JTabbedPane();
+		tabbedPane.setFont(new Font("Arial",Font.PLAIN,14));
+		add(tabbedPane,BorderLayout.CENTER);
+		createNewTab(null);
+				
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		setVisible(true);
+	}
+	
+	private static class TabData{
+		JTextArea textArea;
+		File file;
+	}
+	
+	private void createNewTab(File file) {
+		TabData data=new TabData();
+		data.textArea=new JTextArea();
+		data.textArea.setFont(new Font("MoNTSERRAT",Font.PLAIN,17));
+		data.textArea.setLineWrap(true);
+		data.textArea.setWrapStyleWord(true);
+		data.file=file;
+		
+		JScrollPane scroll=new JScrollPane(data.textArea);
+		scroll.setBorder(BorderFactory.createEmptyBorder());
+		
+		String title=(file==null)?"Untitled" : file.getName();
+		tabbedPane.addTab(title, scroll);
+		scroll.putClientProperty("tabData",data);
+	}
+	
+	private TabData getCurrentTab() {
+		JScrollPane scroll=(JScrollPane)tabbedPane.getSelectedComponent();
+		return (TabData)scroll.getClientProperty("tabData");
+	}
+	
+	private JTextArea getCurrentArea() {
+		return getCurrentTab().textArea;
+	}
+
+	private void closeCurrentTab() {
+		int index=tabbedPane.getSelectedIndex();
+		if(index!=-1) {
+			tabbedPane.removeTabAt(index);
+			if(tabbedPane.getTabCount()==0) {
+				createNewTab(null);
+			}
+		}
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("New")) {
+			createNewTab(null);
+		}
+		else if(e.getActionCommand().equals("Open")) {
+			int action=chooser.showOpenDialog(this);
+			if(action!=JFileChooser.APPROVE_OPTION)return;
+			File file=chooser.getSelectedFile();
+			try(BufferedReader reader=new BufferedReader(new FileReader(file))){
+				TabData data=new TabData();
+				data.textArea=new JTextArea();
+				data.textArea.read(reader, null);
+				data.textArea.setFont(new Font("MONTSERRAT",Font.PLAIN,17));
+				data.textArea.setLineWrap(true);
+				data.textArea.setWrapStyleWord(true);
+				data.file=file;
+				
+				JScrollPane scroll=new JScrollPane(data.textArea);
+				scroll.setBorder(BorderFactory.createEmptyBorder());
+				scroll.putClientProperty("tabData",data);
+				tabbedPane.addTab(file.getName(), scroll);
+				tabbedPane.setSelectedComponent(scroll);
+			}
+			catch(Exception ae) {
+				ae.printStackTrace();
+			}
+		}
+		else if(e.getActionCommand().equals("Save")) {
+			TabData data=getCurrentTab();
+			JTextArea area=data.textArea;
+			
+			if(data.file!=null) {
+				try(BufferedWriter out=new BufferedWriter(new FileWriter(data.file))) {
+					area.write(out);
+				}
+				catch(Exception ae) {
+					ae.printStackTrace();
+				}
+			}
+			else {
+				int action=chooser.showSaveDialog(this);
+				if(action!=JFileChooser.APPROVE_OPTION)return;
+				File chosen=chooser.getSelectedFile();
+				String path=chosen.getAbsolutePath();
+				if(!path.toLowerCase().endsWith(".txt"))path+=".txt";
+				data.file=new File(path);
+				try(BufferedWriter out=new BufferedWriter(new FileWriter(data.file))){
+					area.write(out);
+					int index=tabbedPane.getSelectedIndex();
+					tabbedPane.setTitleAt(index, data.file.getName());
+				}
+				catch(Exception ae) {
+					ae.printStackTrace();
+				}
+			}
+			
+		}
+		else if(e.getActionCommand().equals("Close Tab")) {
+			closeCurrentTab();
+		}
+		else if(e.getActionCommand().equals("Print")) {
+			try {
+				getCurrentArea().print();
+			}
+			catch(Exception ae) {
+				ae.printStackTrace();
+			}
+		}
+		else if(e.getActionCommand().equals("Exit")) {
+			System.exit(0);
+		}
+		else if(e.getActionCommand().equals("Copy")) {
+			getCurrentArea().copy();
+		}
+		else if(e.getActionCommand().equals("Paste")) {
+			getCurrentArea().paste();
+		}
+		else if(e.getActionCommand().equals("Cut")) {
+			getCurrentArea().cut();
+		}
+		else if(e.getActionCommand().equals("Select All")) {
+			getCurrentArea().selectAll();
+		}
+		else if(e.getActionCommand().equals("About")) {
+			new About().setVisible(true);
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		new Notepad();
+	}
+}

@@ -411,3 +411,710 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.jboss.tools.usage 2 0 2025-08-19 19:43:46.857
 !MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-08-20 00:43:32.228
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-08-20 00:43:32.230
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-08-20 00:43:32.231
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-08-20 00:43:32.233
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
+!SESSION 2025-10-25 21:30:38.936 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-10-25 21:30:57.739
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-10-25 21:31:26.420
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-10-25 21:31:46.781
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.529
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.962
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.963
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.965
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.966
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.968
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.968
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.969
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.970
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.975
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.977
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.978
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.980
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.982
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.983
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.985
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.986
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:55.988
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.000
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.002
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.004
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.005
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.008
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.009
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.011
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.013
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.015
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.016
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.018
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-10-25 21:31:56.019
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
+!SESSION 2025-11-03 22:37:15.598 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-03 22:37:25.443
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-03 22:37:33.470
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-11-03 22:37:53.456
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:08.122
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.635
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.637
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.639
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.641
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.643
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.645
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.647
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.649
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.669
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.674
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.676
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.679
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.681
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.684
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.686
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.689
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-03 22:38:09.691
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.
+!SESSION 2025-11-04 20:38:58.199 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-04 20:39:02.590
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-04 20:39:34.424
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-11-04 20:39:43.380
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.112
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.330
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.330
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.331
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.332
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.332
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.333
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.334
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.334
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.334
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.336
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.336
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.337
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.338
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.338
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.339
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.339
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.342
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.343
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.344
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.344
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-04 20:39:47.345
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.
+!SESSION 2025-11-06 16:43:44.928 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-06 16:44:39.393
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-06 16:44:56.913
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.equinox.app 4 2 2025-11-06 16:45:15.453
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.equinox.app".
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4922)
+	at org.eclipse.swt.SWT.error(SWT.java:4837)
+	at org.eclipse.swt.SWT.error(SWT.java:4808)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:488)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:407)
+	at org.eclipse.swt.widgets.Shell.close(Shell.java:561)
+	at org.eclipse.ui.splash.AbstractSplashHandler.dispose(AbstractSplashHandler.java:65)
+	at org.eclipse.ui.internal.Workbench$3$1.applicationRunning(Workbench.java:797)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle$1.run(EclipseAppHandle.java:290)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.applicationRunning(EclipseAppHandle.java:278)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1088)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-11-06 16:45:15.874
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:22.946
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.028
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.028
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.028
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.028
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.035
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.035
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.037
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.039
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.044
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.045
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.045
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.045
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.045
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.045
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.052
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.054
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 16:45:24.056
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.
+!SESSION 2025-11-06 20:20:28.871 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-06 20:20:34.623
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-06 20:27:19.434
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-11-06 20:27:27.270
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2025-11-06 20:36:46.630 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-06 20:38:05.526
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-06 20:38:16.626
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-11-06 20:38:26.298
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.301
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.536
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.537
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.538
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.539
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.540
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.540
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.541
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.542
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.545
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.547
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.549
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.550
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.558
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.559
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.560
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.562
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-06 20:38:29.562
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.
+!SESSION 2025-11-07 10:59:46.496 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-07 11:02:13.383
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-07 11:02:22.008
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-11-07 11:02:40.465
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:46.763
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.218
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.220
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.222
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.224
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.226
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.228
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.230
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.232
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.242
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.244
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.246
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.249
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.251
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.255
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.257
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.259
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 11:02:48.260
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+!SESSION 2025-11-07 12:00:03.772 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-07 12:00:09.998
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-07 12:00:24.596
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-11-07 12:00:40.612
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.556
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.954
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.955
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.957
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.966
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.968
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.970
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.972
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.973
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.978
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.981
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.983
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.985
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.986
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.988
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.990
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.992
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:00:45.994
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+!SESSION 2025-11-07 12:04:41.870 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-07 12:04:48.567
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-11-07 12:05:18.462
+!MESSAGE Logback config file: C:\Users\saipr\OneDrive\Desktop\Notepad\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-11-07 12:05:35.095
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\saipr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:40.767
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.564
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.568
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.571
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.573
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.576
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.577
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.580
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.582
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.589
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.593
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.594
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.598
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.601
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.604
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.606
+!MESSAGE Could not send USER event 'Anonymous ID: 4e0cfca8-9203-4756-8255-e3f1eefd2ac2': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.608
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-11-07 12:05:42.611
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.

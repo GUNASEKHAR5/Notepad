@@ -1,0 +1,233 @@
+package notepad;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+public class Notepad extends JFrame implements ActionListener {
+    private static final long serialVersionUID = 1L;
+
+    // Main components
+    private JTabbedPane tabbedPane;  // holds multiple files
+    private JFileChooser chooser;
+
+    Notepad() {
+        setTitle("Notepad");
+        setIconImage(new ImageIcon(getClass().getResource("/notepad/icons/notepad.png")).getImage());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        chooser = new JFileChooser();
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.addChoosableFileFilter(new FileNameExtensionFilter("Text Documents (*.txt)", "txt"));
+
+        // ---- Menu Bar ----
+        JMenuBar menubar = new JMenuBar();
+        menubar.setBackground(new Color(245, 250, 249));
+
+        JMenu file = new JMenu("File");
+        file.setFont(new Font("Arial", Font.PLAIN, 14));
+        addMenuItem(file, "New", KeyEvent.VK_N);
+        addMenuItem(file, "Open", KeyEvent.VK_O);
+        addMenuItem(file, "Save", KeyEvent.VK_S);
+        addMenuItem(file, "Close Tab", KeyEvent.VK_W);
+        addMenuItem(file, "Exit", KeyEvent.VK_ESCAPE);
+
+        JMenu edit = new JMenu("Edit");
+        edit.setFont(new Font("Arial", Font.PLAIN, 14));
+        addMenuItem(edit, "Copy", KeyEvent.VK_C);
+        addMenuItem(edit, "Paste", KeyEvent.VK_V);
+        addMenuItem(edit, "Cut", KeyEvent.VK_X);
+        addMenuItem(edit, "Select All", KeyEvent.VK_A);
+
+        JMenu aboutMenu = new JMenu("About");
+        aboutMenu.setFont(new Font("Arial", Font.PLAIN, 14));
+        addMenuItem(aboutMenu, "About", KeyEvent.VK_H);
+
+        menubar.add(file);
+        menubar.add(edit);
+        menubar.add(aboutMenu);
+        setJMenuBar(menubar);
+
+        // ---- Tabbed Pane ----
+        tabbedPane = new JTabbedPane();
+        tabbedPane.setFont(new Font("Arial", Font.PLAIN, 14));
+        add(tabbedPane, BorderLayout.CENTER);
+
+        // Open one default untitled tab
+        createNewTab(null);
+
+        setVisible(true);
+    }
+
+    // Utility: Add menu items with shortcuts
+    private void addMenuItem(JMenu menu, String name, int key) {
+        JMenuItem item = new JMenuItem(name);
+        item.addActionListener(this);
+        item.setAccelerator(KeyStroke.getKeyStroke(key, ActionEvent.CTRL_MASK));
+        menu.add(item);
+    }
+
+    // Represents data for each tab
+    private static class TabData {
+        JTextArea textArea;
+        File file;
+    }
+
+    // Create a new tab (untitled if file == null)
+    private void createNewTab(File file) {
+        TabData data = new TabData();
+        data.textArea = new JTextArea();
+        data.textArea.setFont(new Font("MONTSERRAT", Font.PLAIN, 17));
+        data.textArea.setLineWrap(true);
+        data.textArea.setWrapStyleWord(true);
+        data.file = file;
+
+        JScrollPane scroll = new JScrollPane(data.textArea);
+        scroll.setBorder(BorderFactory.createEmptyBorder());
+
+        String title = (file == null) ? "Untitled" : file.getName();
+        tabbedPane.addTab(title, scroll);
+        tabbedPane.setSelectedComponent(scroll);
+        scroll.putClientProperty("tabData", data);
+    }
+
+    // Get current tab's TabData
+    private TabData getCurrentTab() {
+        JScrollPane scroll = (JScrollPane) tabbedPane.getSelectedComponent();
+        return (TabData) scroll.getClientProperty("tabData");
+    }
+
+    // Get current JTextArea
+    private JTextArea getCurrentArea() {
+        return getCurrentTab().textArea;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String cmd = e.getActionCommand();
+
+        switch (cmd) {
+            case "New":
+                createNewTab(null);
+                break;
+
+            case "Open":
+                openFile();
+                break;
+
+            case "Save":
+                saveFile();
+                break;
+
+            case "Close Tab":
+                closeCurrentTab();
+                break;
+
+            case "Exit":
+                System.exit(0);
+                break;
+
+            case "Copy":
+                getCurrentArea().copy();
+                break;
+
+            case "Paste":
+                getCurrentArea().paste();
+                break;
+
+            case "Cut":
+                getCurrentArea().cut();
+                break;
+
+            case "Select All":
+                getCurrentArea().selectAll();
+                break;
+
+            case "About":
+                new About().setVisible(true);
+                break;
+        }
+    }
+
+    // ---------------- FILE METHODS ----------------
+
+    private void openFile() {
+        int action = chooser.showOpenDialog(this);
+        if (action != JFileChooser.APPROVE_OPTION) return;
+
+        File file = chooser.getSelectedFile();
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            TabData data = new TabData();
+            data.textArea = new JTextArea();
+            data.textArea.read(reader, null);
+            data.textArea.setFont(new Font("MONTSERRAT", Font.PLAIN, 17));
+            data.textArea.setLineWrap(true);
+            data.textArea.setWrapStyleWord(true);
+            data.file = file;
+
+            JScrollPane scroll = new JScrollPane(data.textArea);
+            scroll.setBorder(BorderFactory.createEmptyBorder());
+            scroll.putClientProperty("tabData", data);
+
+            tabbedPane.addTab(file.getName(), scroll);
+            tabbedPane.setSelectedComponent(scroll);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error opening file:\n" + ex.getMessage(),
+                    "Open Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void saveFile() {
+        TabData data = getCurrentTab();
+        JTextArea area = data.textArea;
+
+        if (data.file != null) {
+            // Auto-save existing file
+            try (BufferedWriter out = new BufferedWriter(new FileWriter(data.file))) {
+                area.write(out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error saving file:\n" + ex.getMessage(),
+                        "Save Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            int action = chooser.showSaveDialog(this);
+            if (action != JFileChooser.APPROVE_OPTION) return;
+
+            File chosen = chooser.getSelectedFile();
+            String path = chosen.getAbsolutePath();
+            if (!path.toLowerCase().endsWith(".txt"))
+                path += ".txt";
+            data.file = new File(path);
+
+            try (BufferedWriter out = new BufferedWriter(new FileWriter(data.file))) {
+                area.write(out);
+                // Update tab title
+                int index = tabbedPane.getSelectedIndex();
+                tabbedPane.setTitleAt(index, data.file.getName());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error saving file:\n" + ex.getMessage(),
+                        "Save Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void closeCurrentTab() {
+        int index = tabbedPane.getSelectedIndex();
+        if (index != -1) {
+            tabbedPane.removeTabAt(index);
+            if (tabbedPane.getTabCount() == 0) {
+                createNewTab(null);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(Notepad::new);
+    }
+}
